@@ -1,30 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int n; 
-    scanf("%d", &n);
-
-    int arr[n];
-    int sum = 0;
-
+    int size;
+    int array[20];
     
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-        sum += arr[i];
+    scanf("%d", &size);
+    
+    for(int i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
     }
-
     
-    float mean = (float)sum / n;
-
+    int sum1 = 0;
     
-    int positiveSum = 0;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] >= mean) {
-            positiveSum += arr[i];
+    for(int i = 0; i < size; i++) {
+        sum1 += array[i];
+    }
+	
+    float avg = (float) sum1/size;
+    int sum2 = 0;
+    
+    for(int i = 0; i < size; i++) {
+        if(array[i] >= avg){
+            sum2+= array[i];
         }
     }
-
-    printf("%d", positiveSum);
-
-    return 0;
+    
+    printf("%d",sum2);
 }
