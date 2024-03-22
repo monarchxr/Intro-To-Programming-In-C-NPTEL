@@ -3,40 +3,33 @@
 
 int main() {
     int size1, size2;
-
-    
     scanf("%d", &size1);
-
-    int arr1[size1];
+    int arr1[20], arr2[20];
     
-    for (int i = 0; i < size1; i++) {
+    for(int i = 0; i < size1; i++) {
         scanf("%d", &arr1[i]);
     }
-
+    
     scanf("%d", &size2);
-
-    int arr2[size2];
-
-    for (int i = 0; i < size2; i++) {
+    
+    for(int i = 0; i < size2; i++) {
         scanf("%d", &arr2[i]);
     }
-
-    int smallestCommon = 1e9;
-
-    for (int i = 0; i < size1; i++) {
-        for (int j = 0; j < size2; j++) {
-            if (arr1[i] == arr2[j] && arr1[i] < smallestCommon) {
-                smallestCommon = arr1[i];
+    
+    int found = -1; 
+    
+    
+    for(int i = 0; i < size1; i++) {
+        int val = arr1[i];
+        for(int j = 0; j < size2; j++) {
+            if(arr2[j] == val) {
+                if(found == -1 || val < found) {
+                    found = val;
+                }
             }
         }
     }
-
-    // Output the result
-    if (smallestCommon == 1e9) {
-        printf("-1");
-    } else {
-        printf("%d", smallestCommon);
-    }
-
+    
+    printf("%d", found);
     return 0;
 }
